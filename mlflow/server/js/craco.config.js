@@ -83,7 +83,7 @@ function configureIframeCSSPublicPaths(config, env) {
     });
 
   if (!cssRuleFixed) {
-    throw new Error('Failed to fix CSS paths!');
+    //throw new Error('Failed to fix CSS paths!');
   }
 
   return config;
