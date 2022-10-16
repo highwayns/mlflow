@@ -185,6 +185,6 @@ setup(
     project_urls={
         "Bug Tracker": "https://github.com/mlflow/mlflow/issues",
         "Documentation": "https://mlflow.org/docs/latest/index.html",
-        "Source Code": "https://github.com/mlflow/mlflow",
+        "Source Code": "https://github.com/highwayns/mlflow",
     },
 )

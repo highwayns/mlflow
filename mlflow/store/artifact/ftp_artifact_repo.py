@@ -19,10 +19,10 @@ class FTPArtifactRepository(ArtifactRepository):
         self.uri = artifact_uri
         parsed = urllib.parse.urlparse(artifact_uri)
         self.config = {
-            "host": parsed.hostname,
-            "port": 21 if parsed.port is None else parsed.port,
-            "username": parsed.username,
-            "password": parsed.password,
+            "host": "ftp-server", #parsed.hostname,
+            "port": 21, # if parsed.port is None else parsed.port,
+            "username": "laradock_ftp", #parsed.username,
+            "password": "laradock_ftp", #parsed.password,
         }
         self.path = parsed.path
 
@@ -34,9 +34,9 @@ class FTPArtifactRepository(ArtifactRepository):
     @contextmanager
     def get_ftp_client(self):
         ftp = FTP()
+        ftp.set_pasv(True)
         ftp.connect(self.config["host"], self.config["port"])
         ftp.login(self.config["username"], self.config["password"])
-        ftp.set_pasv(True)
         yield ftp
         ftp.close()
 
