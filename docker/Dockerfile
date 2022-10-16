@@ -3,8 +3,9 @@ FROM python:3.9.7-buster as builder
 
 # install mlflow and psycopg2
 RUN pip install \
-    mlflow \
     psycopg2
+
+RUN pip install git+https://github.com/highwayns/mlflow.git
 
 # main image
 FROM python:3.9.7-slim-buster
