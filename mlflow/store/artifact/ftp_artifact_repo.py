@@ -36,6 +36,7 @@ class FTPArtifactRepository(ArtifactRepository):
         ftp = FTP()
         ftp.connect(self.config["host"], self.config["port"])
         ftp.login(self.config["username"], self.config["password"])
+        ftp.set_pasv(True)
         yield ftp
         ftp.close()
 
